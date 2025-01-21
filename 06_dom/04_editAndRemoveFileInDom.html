@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and Remove in DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Java Script</li>
+    </ul>    
+</body>
+<script>
+
+    // Add value 
+    function addLanguage(langName) {
+        const li = document.createElement('li')
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("Python")
+    addLanguage("Reacts Js")
+
+    // Add value good practise
+
+    function addOptiLanguage(langName) {
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage("Java")
+    addOptiLanguage("Spring Boot")
+
+
+    // Edit value example 1 :
+    const lang = document.querySelector("li:nth-child(2)")
+    // lang.innerHTML = "Mojo"
+    const newLi = document.createElement("li")
+    newLi.textContent = "Mojo"
+    lang.replaceWith(newLi)
+
+
+    // Edit value example 2 :
+
+    const firstLanguge = document.querySelector("li:first-child")
+    firstLanguge.outerHTML = '<li>Type Script</li>'
+
+
+    // Reomve
+    const lastLanguage = document.querySelector("li:last-child")
+    lastLanguage.remove()
+
+</script>
+</html>
